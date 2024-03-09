@@ -9,7 +9,6 @@ public class Dialog {
         Object[] message = {
             "Namn:", ign
         };
-
         int option = JOptionPane.showOptionDialog(null, message, "Skriv ditt ign", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, null, null);
         
         if (option == JOptionPane.OK_OPTION) {
@@ -18,7 +17,6 @@ public class Dialog {
             if (name.length() > 3) {
                 name = name.substring(0, 3);
             }
-            
             return name;
         } else {
         	System.exit(0);

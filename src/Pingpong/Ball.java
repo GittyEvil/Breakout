@@ -36,12 +36,7 @@ public class Ball extends Sprite{
 	{
 		this.dy = dy;
 	}
-	/*
-	public int multiball() {
-		int amountBalls = balls.ballAmount();
-		return 2 * amountBalls;
-	}
-	*/
+	
 	@Override
 	public void update(Keyboard keyboard) {
 		setY(getY() + dy);

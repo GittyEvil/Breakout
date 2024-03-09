@@ -19,6 +19,7 @@ public class Const {
 	public static final int batHeight = 10;
 	public static final int batStartx = 350;
 	public static final int batStarty = 500;
+	public static final int batMaxPosition = 800;
 	
 	//gameboard
 	public static final int gameboardWidth = 800;

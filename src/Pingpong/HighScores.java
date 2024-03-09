@@ -19,17 +19,20 @@ public class HighScores<E> {
 	}
 	
 	public void add(int element, String ign) {
-		if(lista.size() == size) {
-			lista.remove(size - 1);
-		} 
 		//pga att sortering är skum så fuska ja å la bara till 0:or, läs rapport
 		if(element < 10) {
 			lista.addElement((E) (ign + " 00" + element));
 		} else if(element < 100) {
 			lista.addElement((E) (ign + " 0" + element));
 		} else {
-			lista.addElement((E) (ign +" " + element));
+			lista.addElement((E) (ign + " " + element));
 		}
+		//fixa så att ifall sista poänget i lista är större än element så ska den inte tas bort
+		for(int i = 0; i < lista.size();i++) {
+			if(lista.size() == size) {
+				lista.remove(size - 1);
+			}
+		} 
 	}
 	
 	public void remove(int element) {
@@ -46,10 +49,10 @@ public class HighScores<E> {
         Collections.sort(tempLista, new Comparator<String>() {
             @Override
             //delar upp 2 strings i taget och jämför endast poäng, letar efter mellanslaget mellan namn å poäng
-            public int compare(String o1, String o2) {
+            public int compare(String poäng1, String poäng2) {
             	//delar upp, och gör om string poäng till int poäng för att kunna jämföra
-                int score1 = Integer.parseInt(o1.substring(o1.lastIndexOf(" ") + 1));
-                int score2 = Integer.parseInt(o2.substring(o2.lastIndexOf(" ") + 1));
+                int score1 = Integer.parseInt(poäng1.substring(poäng1.lastIndexOf(" ") + 1));
+                int score2 = Integer.parseInt(poäng2.substring(poäng2.lastIndexOf(" ") + 1));
                 return Integer.compare(score2, score1);
             }
         });
@@ -60,7 +63,6 @@ public class HighScores<E> {
         }
     }
 
-	
 	public void isFull() {
 		int listaStorlek = lista.size();
 		if(listaStorlek == size) {

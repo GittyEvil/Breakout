@@ -37,7 +37,7 @@ public class Game {
 	
 	public Game(GameBoard board, HighScores<String> highscore2, LatestRuns<Integer> runs, States status2) {
 		walls = new HandleWall();
-		boards = new PlayerBoard(Const.batStartx,Const.batStarty,Const.batWidth,Const.batHeight,Color.gray,800,0);
+		boards = new PlayerBoard(Const.batStartx,Const.batStarty,Const.batWidth,Const.batHeight,Color.gray,Const.batMaxPosition,0);
 		bricks = new HandleBrick();
 		balls = new HandleBall(boards);
 		
@@ -47,6 +47,7 @@ public class Game {
 	}
 
 	public void update(Keyboard keyboard) {
+		//spelet körs så länge spelaren inte förlorat
 		if(status.getStatus() == States.running) {
 			walls.update(keyboard,balls);
 			balls.getBalls();

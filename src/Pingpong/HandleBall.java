@@ -41,6 +41,7 @@ public class HandleBall {
 		return balls.size();
 	}
 	public void update(Keyboard keyboard, HandleBall balls2, PlayerBoard boards) {
+		//skapar iterator för att ta bort bollar
 		Iterator<Ball> Iterator = balls.iterator();
 		while(Iterator.hasNext()) {
 			Ball ball = Iterator.next();

@@ -63,7 +63,7 @@ public class GameBoard extends JComponent {
 	}
 	//startar om å tar med listorna från förra runda(skapar ny instans egentligen)
 	public void restart() {
-		highscore.sort(highscore.getList());
+		//highscore.sort(highscore.getList());
 		highscore.add(game.GetTotalPoints(),game.getName());
 		runs.add(game.getLatestRoundP());
 		highscore.sort(highscore.getList());

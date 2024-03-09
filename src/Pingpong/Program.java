@@ -44,12 +44,11 @@ public class Program extends JFrame {
 		add(highscoreGlista, BorderLayout.EAST);
 		add(latestRGlista, BorderLayout.WEST);
 		
-		highscoreGlista.setVisible(true);
-		latestRGlista.setVisible(true);
 		latestRGlista.setPreferredSize(getPreferredSize(200,100));
 		highscoreGlista.setPreferredSize(getPreferredSize(200,300));
-		setResizable(true);
+		//pack gör så att allt följer sin storlek och så allt fylls ut
 		pack();
+		setResizable(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 		board.start();

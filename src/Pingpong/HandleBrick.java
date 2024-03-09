@@ -21,36 +21,37 @@ public class HandleBrick {
 	
 	public HandleBrick() {
 		bricks = new ArrayList<>();
-		
 		timer = new Timer(10000, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
 		});
-		
 		for(int i = 0; i < Const.Nivå1; i++) {
 			int row = i / Const.brickperRad;
 			int col = i % Const.brickperRad;
 			int y = row * (Const.brickSpace);
 			int x = col * (Const.brickHeight + Const.brickSpace);
-			int byteAvBrick = rand.nextInt(1,4);
+			int typAvBrick = rand.nextInt(1,4);
 			
-			if(byteAvBrick == 1) {
+			if(typAvBrick == 1) {
 				bricks.add(new Brick(startVärdeX + x,startVärdeY + y,Const.brickWidth,Const.brickHeight, Color.yellow));
 			}
-			if(byteAvBrick == 2) {
+			if(typAvBrick == 2) {
 				bricks.add(new lvl2Brick(startVärdeX + x,startVärdeY + y,Const.brickWidth,Const.brickHeight));
 			}
-			if(byteAvBrick == 3) {
+			if(typAvBrick == 3) {
 				bricks.add(new lvl3Brick(startVärdeX + x,startVärdeY + y,Const.brickWidth,Const.brickHeight));
 			}
 		}	
 	}
 	//itererar med en iterator som 
 	public int update(Keyboard keyboard, HandleBall balls, int points) {
+		//skapar iterator för att kunna ta bort brickor samtidigt som iteration
 	    Iterator<Brick> iterator = bricks.iterator();
+	    //Kollar om de finns ett nästa objekt i iterator lista
 	    while (iterator.hasNext()) {
+	    	//hämtar nästa element i lista
 	        Brick brick = iterator.next();
 	        brick.update(keyboard);
 	        int powerUp = rand.nextInt(0,3);
