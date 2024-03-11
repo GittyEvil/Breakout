@@ -39,7 +39,7 @@ public class PlayerBoard extends Sprite{
 	            //gör om värdet för position på boll till 0,-1,1
 	            double normaliseradvärdeBoll = (positionBoll / (getWidth() / 2));
 	            //tar ut vinkeln,
-	            double angle = normaliseradvärdeBoll * Math.PI / 6;
+	            double angle = normaliseradvärdeBoll * Math.PI / Const.batBounceAngle;
 	            //nya hastigheten beroende på vilken
 	            ball.setDx((int) (-ball.speed * Math.sin(angle)));
 	            ball.setDy((int) (-ball.speed * Math.cos(angle)));

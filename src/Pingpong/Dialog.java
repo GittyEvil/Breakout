@@ -14,8 +14,8 @@ public class Dialog {
         if (option == JOptionPane.OK_OPTION) {
             String name = ign.getText();
             
-            if (name.length() > 3) {
-                name = name.substring(0, 3);
+            if (name.length() > Const.ignSize) {
+                name = name.substring(0, Const.ignSize);
             }
             return name;
         } else {

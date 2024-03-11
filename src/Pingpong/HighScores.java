@@ -19,6 +19,12 @@ public class HighScores<E> {
 	}
 	
 	public void add(int element, String ign) {
+		//fixa så att ifall sista poänget i lista är större än element så ska den inte tas bort
+				for(int i = 0; i < lista.size();i++) {
+					if(lista.size() == size) {
+						lista.remove(size - 1);
+					}
+				} 
 		//pga att sortering är skum så fuska ja å la bara till 0:or, läs rapport
 		if(element < 10) {
 			lista.addElement((E) (ign + " 00" + element));
@@ -27,12 +33,6 @@ public class HighScores<E> {
 		} else {
 			lista.addElement((E) (ign + " " + element));
 		}
-		//fixa så att ifall sista poänget i lista är större än element så ska den inte tas bort
-		for(int i = 0; i < lista.size();i++) {
-			if(lista.size() == size) {
-				lista.remove(size - 1);
-			}
-		} 
 	}
 	
 	public void remove(int element) {

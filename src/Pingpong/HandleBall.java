@@ -21,16 +21,8 @@ public class HandleBall {
 		balls = new ArrayList<>();
 		
 		for(int i = 0; i < Const.antalBollar;i++) {
-			balls.add(new Ball(boards.getX() + Const.batHeight,boards.getY() - 20,Const.ballWidth,Const.ballHeight,Color.white));
+			balls.add(new Ball(boards.getX() + Const.batHeight,boards.getY() - Const.batHeight*2,Const.ballWidth,Const.ballHeight,Color.white));
 		}
-		
-		timer = new Timer(10000, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0); 
-            }
-        });
-
 	}
 	//hämtar bara bollarna
 	public ArrayList<Ball> getBalls() {
@@ -57,13 +49,13 @@ public class HandleBall {
 			ball.draw(graphics);
 			int ballCount = balls.size();
 			String text= "Antal bollar:"+ballCount; 
-			graphics.drawString(text, 10, 570);
+			graphics.drawString(text, Const.bollStringX, Const.bollStringY);
 		}
 		if(balls.isEmpty()) {
 			status.setStatus(States.paused);
 			//status = States.paused;
 			String string = "du förlora jo";
-			Font stringFont = new Font("SansSerif", Font.BOLD, 50);
+			Font stringFont = new Font("SansSerif", Font.BOLD, Const.fontSize);
 			graphics.setFont(stringFont);
 			graphics.drawString(string, Const.förloraStringposX, Const.förloraStringposY);
 			//System.out.println(status.getStatus());

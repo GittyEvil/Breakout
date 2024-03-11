@@ -44,8 +44,8 @@ public class Program extends JFrame {
 		add(highscoreGlista, BorderLayout.EAST);
 		add(latestRGlista, BorderLayout.WEST);
 		
-		latestRGlista.setPreferredSize(getPreferredSize(200,100));
-		highscoreGlista.setPreferredSize(getPreferredSize(200,300));
+		latestRGlista.setPreferredSize(getPreferredSize(Const.GListaWidth,Const.GListaHeight));
+		highscoreGlista.setPreferredSize(getPreferredSize(Const.GListaWidth,Const.GListaHeight));
 		//pack gör så att allt följer sin storlek och så allt fylls ut
 		pack();
 		setResizable(true);

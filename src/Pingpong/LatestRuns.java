@@ -27,7 +27,7 @@ public class LatestRuns<E> {
 	
 	public void isFull() {
 		int listaStorlek = lista.size();
-		if(listaStorlek == 3) {
+		if(listaStorlek == size) {
 			
 		}
 	}

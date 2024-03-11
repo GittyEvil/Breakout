@@ -16,6 +16,7 @@ public class Game {
 	private HandleBrick bricks;
 	HighScores<String> highscore;
 	LatestRuns<Integer> latestRuns;
+	Random r = new Random();
 	
 	private States status;
 	
@@ -72,7 +73,7 @@ public class Game {
 		
 		if(status.getStatus() == States.paused) {
 			String string = "Tryck på enter -> starta om";
-			Font stringFont = new Font("SansSerif", Font.BOLD, 50);
+			Font stringFont = new Font("SansSerif", Font.BOLD, Const.fontSize);
 			graphics.setFont(stringFont);
 			graphics.drawString(string, Const.försökStringposX, Const.försökStringposY);
 		}

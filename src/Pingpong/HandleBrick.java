@@ -21,18 +21,12 @@ public class HandleBrick {
 	
 	public HandleBrick() {
 		bricks = new ArrayList<>();
-		timer = new Timer(10000, new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
-			}
-		});
 		for(int i = 0; i < Const.Nivå1; i++) {
 			int row = i / Const.brickperRad;
 			int col = i % Const.brickperRad;
 			int y = row * (Const.brickSpace);
 			int x = col * (Const.brickHeight + Const.brickSpace);
-			int typAvBrick = rand.nextInt(1,4);
+			int typAvBrick = rand.nextInt(1,Const.brickTyper);
 			
 			if(typAvBrick == 1) {
 				bricks.add(new Brick(startVärdeX + x,startVärdeY + y,Const.brickWidth,Const.brickHeight, Color.yellow));
@@ -54,7 +48,7 @@ public class HandleBrick {
 	    	//hämtar nästa element i lista
 	        Brick brick = iterator.next();
 	        brick.update(keyboard);
-	        int powerUp = rand.nextInt(0,3);
+	        int powerUp = rand.nextInt(0,Const.powerUpChance);
 	        //iteratorn för bollistan
 	        List<Ball> ballsCopy = new ArrayList<>(balls.getBalls());
 	        for (Ball ball : ballsCopy) {
@@ -92,7 +86,7 @@ public class HandleBrick {
 		}
 		String poäng = "Poäng: "+ points;
 		graphics.setColor(Color.white);
-		graphics.drawString(poäng, 700,570);
+		graphics.drawString(poäng, Const.poängStringX,Const.poängStringy);
 		
 		if(bricks.isEmpty()) {
 			String string = "Du vann,Poäng: " + poäng;
