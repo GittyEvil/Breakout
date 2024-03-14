@@ -53,7 +53,7 @@ public class Program extends JFrame {
 		setVisible(true);
 		board.start();
 	}
-	
+	//funktion för att bestämma storlek på listor(funkar halvt?)
 	private Dimension getPreferredSize(int i, int j) {
 		// TODO Auto-generated method stub
 		return new Dimension(i, j);

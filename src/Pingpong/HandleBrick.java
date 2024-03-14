@@ -22,6 +22,7 @@ public class HandleBrick {
 	public HandleBrick() {
 		bricks = new ArrayList<>();
 		for(int i = 0; i < Const.Nivå1; i++) {
+			//delar upp alla 84 brickor på 7 rader, 12 på varje rad
 			int row = i / Const.brickperRad;
 			int col = i % Const.brickperRad;
 			int y = row * (Const.brickSpace);
